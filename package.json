@@ -26,7 +26,7 @@
     "bench": "branchcmp -r 2 -g -s \"npm run benchmark\"",
     "benchmark": "npx concurrently -k -s first \"node ./benchmarks/tjp.js\" \"npm run benchmark:request\"",
     "benchmark:core": "npx concurrently -k -s first \"node ./benchmarks/core.js\" \"npm run benchmark:request\"",
-    "benchmark:request": "npx autocannon -c 100 -d 5 -p 10 -m POST -b '{ \"hello\": \"world\" }' -H Content-Type=application/json localhost:3000/"
+    "benchmark:request": "npx autocannon -c 100 -d 5 -p 10 -m POST -b '{\"hello\":\"world\"}' -H Content-Type=application/json localhost:3000/"
   },
   "precommit": [
     "lint",

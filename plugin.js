@@ -1,9 +1,9 @@
 const fp = require('fastify-plugin')
 const compile = require('turbo-json-parse')
 
-const compilers = new Map()
-
 function plugin (fastify, options, next) {
+  const compilers = new Map()
+
   fastify.addHook('onRoute', (routeOptions) => {
     const { url } = routeOptions
     const { body } = routeOptions.schema || {}
@@ -17,7 +17,7 @@ function plugin (fastify, options, next) {
   fastify.addContentTypeParser('application/json', { parseAs: 'string' },
     (request, body, done) => {
       try {
-        const { url, body } = request
+        const { url } = request
         const parse = compilers.get(url)
         const json = parse(body)
         done(null, json)
