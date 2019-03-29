@@ -1,0 +1,52 @@
+{
+  "name": "fastify-tjp",
+  "version": "1.0.0-alpha.0",
+  "description": "A Fastify plugin to use turbo-json-parser as default parser",
+  "main": "plugin.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "fastify-plugin": "^1.5.0",
+    "turbo-json-parse": "^2.3.0"
+  },
+  "devDependencies": {
+    "autocannon": "^3.2.1",
+    "branch-comparer": "^0.4.0",
+    "concurrently": "^4.1.0",
+    "fastify": "^2.1.0",
+    "pre-commit": "^1.2.2",
+    "snazzy": "^8.0.0",
+    "standard": "^12.0.1",
+    "tap": "^12.6.1"
+  },
+  "scripts": {
+    "test": "tap tests/*.js",
+    "lint": "standard --verbose | snazzy",
+    "bench": "branchcmp -r 2 -g -s \"npm run benchmark\"",
+    "benchmark": "npx concurrently -k -s first \"node ./benchmarks/tjp.js\" \"npm run benchmark:request\"",
+    "benchmark:core": "npx concurrently -k -s first \"node ./benchmarks/core.js\" \"npm run benchmark:request\"",
+    "benchmark:request": "npx autocannon -c 100 -d 5 -p 10 -m POST -b '{ \"hello\": \"world\" }' -H Content-Type=application/json localhost:3000/"
+  },
+  "precommit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnlup/fastify-tjp.git"
+  },
+  "keywords": [
+    "fastify",
+    "plugin",
+    "turbo",
+    "json",
+    "parse"
+  ],
+  "author": "dnlup <dwon.dnl@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dnlup/fastify-tjp/issues"
+  },
+  "homepage": "https://github.com/dnlup/fastify-tjp#readme"
+}
