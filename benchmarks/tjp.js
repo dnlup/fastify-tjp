@@ -1,4 +1,4 @@
-const fastify = require('fastify')
+const Fastify = require('fastify')
 const plugin = require('../plugin')
 
 const schema = {
@@ -24,7 +24,7 @@ const schema = {
   }
 }
 
-const instance = fastify()
+const instance = Fastify({ onProtoPoisoning: 'remove' })
 
 instance.register(plugin)
 

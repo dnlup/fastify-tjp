@@ -1,4 +1,4 @@
-const fastify = require('fastify')
+const Fastify = require('fastify')
 
 const schema = {
   schema: {
@@ -23,7 +23,7 @@ const schema = {
   }
 }
 
-const instance = fastify()
+const instance = Fastify()
 
 instance.post('/', schema, (request, reply) => {
   reply.send({ hello: 'world' })
