@@ -43,3 +43,6 @@ typings/
 
 # Dep Locks
 package-lock.json
+
+# Payload used for benchmarking
+payload.json

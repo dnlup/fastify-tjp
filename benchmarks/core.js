@@ -1,15 +1,9 @@
 const Fastify = require('fastify')
+const body = require('./schema')
 
 const schema = {
   schema: {
-    body: {
-      type: 'object',
-      properties: {
-        hello: {
-          type: 'string'
-        }
-      }
-    },
+    body,
     response: {
       200: {
         type: 'object',
