@@ -9,6 +9,8 @@ const {
 
 function plugin (fastify, options, next) {
   const config = Object.assign({}, {
+    validate: false,
+    validateStrings: false,
     prettyPrinted: true
   }, options)
   const { onProtoPoisoning } = fastify.initialConfig
