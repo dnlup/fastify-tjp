@@ -46,3 +46,5 @@ package-lock.json
 
 # Payload used for benchmarking
 payload.json
+
+.clinic
